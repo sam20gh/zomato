@@ -1,0 +1,55 @@
+<br/><br/><br/><br/><br/>
+<div class="container">
+
+  <!-- Portfolio Item Heading -->
+  <h1 class="my-4"><%= @restaurant.name %>
+    <small> Restaurant</small>
+  </h1>
+
+  <!-- Portfolio Item Row -->
+  <div class="row">
+
+    <div class="col-md-8">
+      <img class="img-fluid" src="<%=@restaurant.thumb%>" alt="">
+      <hr/>
+      <h4><strong>Name:</strong> <br/><%= @restaurant.name %></h4>
+      <p><strong>Address:</strong><br/> <%= @restaurant.address %></p>
+      <p><strong>Cuisines: </strong><br/><%= @restaurant.cuisines %></p>
+      <div class="review">
+      <a href="<%= @restaurant.menu_url%>" target="_blank"><img src="https://i.ibb.co/K08LRQ1/menu.png" alt="menu" border="0">Menu</a> 
+      <a href="<%= @restaurant.menu_url%>" target="_blank"><img src="https://i.ibb.co/RpSk4wF/calendar.png" alt="calendar" border="0"> Book A table</a> 
+      <a href="<%= @restaurant.menu_url%>" target="_blank"><img src="https://i.ibb.co/TrT38r8/love.png" alt="love" border="0">Add a review</a>
+      </div>
+      <hr/>
+      
+        <div id="map-container-google-1" class="z-depth-1-half map-container" style="height: 300px">
+        <iframe src="https://maps.google.com/maps?q=<%=@restaurant.latitude%>+<%=@restaurant.longitude%>&hl=es;z=14&amp;output=embed" width="600" height="300" frameborder="0" style="border:0" allowfullscreen></iframe>
+        </div>
+    </div>
+
+
+    <div class="col-md-4">
+     <h3>Related restaurants</h3>
+      
+        <% @restaurants.limit(6).each do |restaurant| %>
+         <div class="col-lg-6 mbr-col-md-10">
+                <div class="wrap">
+                    <div class="ico-wrap">
+                        <a href="#"><img class="mbr-iconfont fa-volume-up fa" src="<%=restaurant.thumb%>" alt=""></a>
+                    </div>
+                    <div class="text-wrap vcenter">
+                        <a class="mbr-fonts-style mbr-bold mbr-section-title3 display-5"><%= link_to restaurant.name, restaurant %></span></a>
+                        <p class="mbr-fonts-style text1 mbr-text display-6"><%= @restaurant.cuisines %></p>
+                    </div>
+                </div>
+            </div>
+     <% end %>
+    </div>
+  </div>
+  <!-- /.row -->
+
+  <!-- Related Restaurants Row -->
+
+  <!-- /.row -->
+
+</div>

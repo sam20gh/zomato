@@ -1,0 +1,60 @@
+<br/><br/><br/><br/>
+<!-- Page Heading -->
+  <header class="masthead text-white text-center">
+    <div class="overlay"></div>
+    <div class="container">
+      <div class="row">
+        <div class="col-xl-9 mx-auto">
+          <h1 class="mb-5">Find the best restaurants, cafés, and bars in London</h1>
+        </div>
+        <div class="col-md-10 col-lg-8 col-xl-7 mx-auto">
+          <form>
+            <div class="form-row">
+              <div class="col-12 col-md-9 mb-2 mb-md-0">
+                <input type="email" class="form-control form-control-lg" placeholder="Search for restaurants or cuisines">
+              </div>
+              <div class="col-12 col-md-3">
+                <button type="submit" class="btn btn-block btn-lg btn-primary">Search!</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </header>
+  <div class="col-l-16">
+
+  <div class="row">
+  <h2 class="ui header">
+                            <span class="segment_heading">Collections</span>
+                            <span class="sub header">
+                                <span class="segment_sub_heading">
+                                    Explore curated lists of top restaurants, cafes, pubs, and bars in London, based on trends                                </span>
+                            </span>
+  </h2>
+  </div>
+  </div>
+
+  <div class="row">
+     <% @restaurants.limit(12).each do |restaurant| %>
+    <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+            <div class="card h-100">
+           
+            <a><img class="card-img-top" src="<%=restaurant.thumb%>" alt=""></a>
+            <div class="card-body">
+            <h4 class="card-title">
+            <a><%= link_to restaurant.name, restaurant %></a>
+            </h4>
+            <p><%= restaurant.cuisines %></p>
+           
+          </div>
+         </div>
+      
+    </div>
+     <% end %>
+  </div>
+  <!-- /.row -->
+
+  
+
+
