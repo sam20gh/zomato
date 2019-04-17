@@ -11,7 +11,15 @@
           <form>
             <div class="form-row">
               <div class="col-12 col-md-9 mb-2 mb-md-0">
-                <input type="email" class="form-control form-control-lg" placeholder="Search for restaurants or cuisines">
+                <div class="form-group">
+                    <select class="form-control" id="exampleFormControlSelect1">
+                    <% @restaurants.each do |restaurant| %>
+                      <option>
+                      <%=restaurant.locality_verbose%>
+                      <% end%>
+                      </option>
+                    </select>
+                  </div>
               </div>
               <div class="col-12 col-md-3">
                 <button type="submit" class="btn btn-block btn-lg btn-primary">Search!</button>
@@ -26,11 +34,10 @@
 
   <div class="row">
   <h2 class="ui header">
-                            <span class="segment_heading">Collections</span>
-                            <span class="sub header">
-                                <span class="segment_sub_heading">
-                                    Explore curated lists of top restaurants, cafes, pubs, and bars in London, based on trends                                </span>
-                            </span>
+  <span class="segment_heading">Collections</span>
+  <span class="sub header">
+      <span class="segment_sub_heading"> Explore curated lists of top restaurants, cafes, pubs, and bars in London, based on trends</span>
+  </span>
   </h2>
   </div>
   </div>

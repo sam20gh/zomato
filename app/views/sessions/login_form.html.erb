@@ -1,0 +1,26 @@
+
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    <!-- Tabs Titles -->
+      <!-- Icon -->
+    <div class="fadeIn first">
+      <img src="https://i.ibb.co/tYTPktz/weblogo.png" id="icon" alt="User Icon" />
+      <h1>Login</h1>
+    </div>
+
+        <%= flash[:notice] if flash[:notice] %>
+
+        <%= form_for :customer, url: "/login", method: "post" do |f|%>
+          <%= f.label :username%>
+          <%= f.text_field :username%><br>
+          <%= f.label :password%>
+          <%= f.password_field :password%><br>
+          <%= f.submit "Log In"%>
+        <% end%>
+
+<div id="formFooter">
+      <a class="underlineHover" href="../restaurants">Go to the Site</a>
+    </div>
+
+  </div>
+</div>

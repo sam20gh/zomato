@@ -1,0 +1,22 @@
+<br/><br/><br/><br/><br/><br/>
+
+
+  <div class="row">
+     <% @customers.each do |customer| %>
+    <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+            <div class="card h-100">
+           
+            <a><img class="card-img-top" src="https://i.ibb.co/WG6sWyM/girl.png" alt=""></a>
+            <div class="card-body">
+            <h4 class="card-title">
+            <%= link_to customer.name, customer_path(customer)%><h1>
+            	<h6><%= customer.bio%></h6>
+					<p>Age:    <%= customer.age%></p>
+
+           
+          </div>
+         </div>
+      
+    </div>
+     <% end %>
+  </div>

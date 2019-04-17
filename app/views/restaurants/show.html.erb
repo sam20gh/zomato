@@ -18,7 +18,9 @@
       <div class="review">
       <a href="<%= @restaurant.menu_url%>" target="_blank"><img src="https://i.ibb.co/K08LRQ1/menu.png" alt="menu" border="0">Menu</a> 
       <a href="<%= @restaurant.menu_url%>" target="_blank"><img src="https://i.ibb.co/RpSk4wF/calendar.png" alt="calendar" border="0"> Book A table</a> 
-      <a href="<%= @restaurant.menu_url%>" target="_blank"><img src="https://i.ibb.co/TrT38r8/love.png" alt="love" border="0">Add a review</a>
+      <a href="#rating"><img src="https://i.ibb.co/TrT38r8/love.png" alt="love" border="0">Add a review</a>
+      <a>Ratings:</a>
+      
       </div>
       <hr/>
       
@@ -45,11 +47,45 @@
             </div>
      <% end %>
     </div>
+<div class="row">
+<div class="col-md-12">
+<div class="widget-area no-padding blank">
+								<div class="status-upload">
+<h4>Comments: </h4><br/>
+
+<%= flash[:notice] if flash[:notice]%>
+
+
+
+<% if @current_customer%>
+<%= form_for @rating, url: add_rating_path(@restaurant) do |f|%>
+    <%= f.text_area :comment, placeholder: "How was your experiense?"%><br>
+    <%= f.select :rating, [['Bad','1'],['Not bad','2'],['Good','3'],['Very Good','4'],['Fantastic','5']] , placeholder: "Rating"%><br>
+    <%= f.submit%>
+    <% end%>
+<% end  %>
+</div>
+<div class="list-inline">
+<% @restaurant.ratings.each do |rating| %>
+<ol> 
+  
+   <li class="list-inline-item"><a class="social-icon text-xs-center">
+      <%= rating.comment %> - <%= rating.rating %> Stars- <%= rating.customer.username %>
+    </li>
+    <% if @current_customer%>
+    <li class="list-inline-item"><a class="social-icon text-xs-center">
+       <%= button_to "Delete Comment", {action: "delete", controller: "ratings", id: rating.id}, method: "delete" %>
+    </li>
+    <% end  %>
+
+</ol>
+  <% end %>
   </div>
-  <!-- /.row -->
-
-  <!-- Related Restaurants Row -->
-
+</div>
+</div>
+</div>
+</div>
+  </div>
   <!-- /.row -->
 
 </div>

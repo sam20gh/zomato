@@ -1,0 +1,24 @@
+<br/><br/>
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+
+   <div class="fadeIn first">
+      <img src="https://i.ibb.co/tYTPktz/weblogo.png" id="icon" alt="User Icon" />
+      <h1>Signup</h1>
+    </div>
+
+<%= form_for @customer do |f|%>
+  <%= f.text_field :name, placeholder: "Name"%><br>
+  <%= f.text_field :age, placeholder: "Age"%><br>
+  <%= f.text_field :bio, placeholder: "Bio"%><br>
+  <%= f.text_field :username, placeholder: "Username"%><br>
+  <%= f.password_field :password, placeholder: "Password"%><br>
+  <%= f.submit%>
+<% end%>
+<div id="formFooter">
+      <a class="underlineHover" href="../login_form">login</a>
+</div>
+
+
+  </div>
+</div>

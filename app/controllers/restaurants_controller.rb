@@ -10,7 +10,20 @@ class RestaurantsController < ApplicationController
     def show
         @restaurant = Restaurant.find(params[:id])
         @restaurants = Restaurant.where.not(thumb:[nil, ""])
+        @rating = Rating.new
     end
+
+     def add_rating
+     restaurant = Restaurant.find(params[:id])
+
+    rating = Rating.create(
+      comment: params[:rating][:comment],
+      restaurant: restaurant,
+      customer_id: @current_customer.id, 
+      rating: params[:rating][:rating]
+    )
+        redirect_to restaurant_path(restaurant)
+  end
 
     def create
         @restaurant = Restaurant.create(restaurant_params)
@@ -22,6 +35,7 @@ class RestaurantsController < ApplicationController
     end
 
     def restaurant_params
-        params.require(:restaurant).permit(:name, :address, :style)
+        params.require(:restaurant).permit(:name, :address, :rating, :comment)
     end
+
 end
