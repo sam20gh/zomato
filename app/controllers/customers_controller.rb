@@ -3,8 +3,18 @@ class CustomersController < ApplicationController
     @customers= Customer.all
   end
   def create
-    @customer = Customer.create(customer_params)
-    redirect_to customer_path(@customer)
+    # Customer.create(customer_params)
+    # @customer = Customer.new(customer_params[:id])
+    # redirect_to customer_path(@customer)
+
+      @customer = Customer.new(customer_params)
+      if @customer.save
+      redirect_to customer_path(@customer)
+      else
+          flash[:errors] = @customer.errors.full_messages
+          flash[:data] = @customer
+          redirect_to new_customer_path
+      end
   end
 
   def new

@@ -6,6 +6,16 @@
       <img src="https://i.ibb.co/tYTPktz/weblogo.png" id="icon" alt="User Icon" />
       <h1>Signup</h1>
     </div>
+   <% if flash[:errors]%>
+               <div class="alert alert-danger" role="alert">
+               <h3><%= "Error"%></h3>
+              <ul>
+              <% flash[:errors].each do |error|%>
+              <li><%= error %></li>
+              <% end %>
+              </ul>
+              </div>
+              <% end %>
 
 <%= form_for @customer do |f|%>
   <%= f.text_field :name, placeholder: "Name"%><br>

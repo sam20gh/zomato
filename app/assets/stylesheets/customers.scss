@@ -23,7 +23,7 @@ body{
 		box-shadow: 0px 0px 4px 0px #b0b3b7;
 	}
 	.name{
-		font-family: 'Charmonman', cursive;
+		font-family: 'poppins', cursive;
 		font-weight:600;
 	}
 	.bio-image{
@@ -31,7 +31,7 @@ body{
 	}
 	.bio-image img{
         border-radius:50%;
-        max-width: 250px;
+        max-width: 150px;
 	}
 	.bio-content{
 		text-align:left;
@@ -40,12 +40,9 @@ body{
 		font-weight:600;
 		font-size:30px;
 	}
-	.widget-area.blank {
-background: none repeat scroll 0 0 rgba(0, 0, 0, 0);
--webkit-box-shadow: none;
--moz-box-shadow: none;
--ms-box-shadow: none;
--o-box-shadow: none;
+.widget-area.blank {
+background: #fff;
+box-shadow: 7px 7px 30px -5px rgba(0, 0, 0, 0.1);
 box-shadow: none;
 }
 body .no-padding {
@@ -160,4 +157,19 @@ border-left-color: #2dcb73;
 }
 .status-upload form button > i {
 margin-right: 7px;
+}
+.btn-success{
+	background-color: #07881c !important;
+	color: #fff;
+	border-color: #4cae4c !important;
+	 box-shadow: none !important;
+  -webkit-border-radius: 5px 5px 5px 5px !important;
+  border-radius: 5px 5px 5px 5px !important;
+  margin: 5px 5px 10px 5px !important;
+  -webkit-transition: all 0.3s ease-in-out;
+  -moz-transition: all 0.3s ease-in-out;
+  -ms-transition: all 0.3s ease-in-out;
+  -o-transition: all 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
+  float: right;
 }

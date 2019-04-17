@@ -12,6 +12,10 @@ class RestaurantsController < ApplicationController
         @restaurants = Restaurant.where.not(thumb:[nil, ""])
         @rating = Rating.new
     end
+    def search
+        @restaurant = Restaurant.find(params[:locality_verbose])
+        @restaurants = Restaurant.where.not(thumb:[nil, ""])
+    end
 
      def add_rating
      restaurant = Restaurant.find(params[:id])

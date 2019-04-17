@@ -21,7 +21,7 @@
           <h1>Reviews by: <%= @customer.username %></h1>
             <ol> 
               <% @customer.ratings.each do |rating| %>
-              <li><%= link_to rating.comment, restaurant_path(rating) %></li>
+              <li><%= link_to rating.comment, restaurant_path(rating.restaurant) %></li>
               <% end %>
               <% if @current_customer %>
               <%= button_to("Log out", {action: "logout", controller: "sessions"},method: "delete") %>
