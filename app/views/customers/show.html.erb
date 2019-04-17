@@ -1,0 +1,14 @@
+<h1><%= @customer.name %></h1>
+<strong>user_name: <%= @customer.user_name%></strong>
+<br>
+<strong>pasword: <%= @customer.pasword%></strong>
+<br>
+<strong>email: <%= @customer.email%></strong>
+<br>
+<strong>dob: <%= @customer.dob %></strong>
+<br>
+<strong>bio: <%= @customer.bio %></strong>
+
+ <br>
+<%= link_to "customer!", "/customers"%>
+<%= link_to "destroy customer!", customer_path(@customer), method: :delete %>

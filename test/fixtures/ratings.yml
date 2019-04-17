@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  restaurant_id: MyString
+  : 1
+  customer_id: MyString
+  : 1
+  comment: MyString
+  : 
+  rating: MyString
+  datetime: MyString
+
+two:
+  restaurant_id: MyString
+  : 1
+  customer_id: MyString
+  : 1
+  comment: MyString
+  : 
+  rating: MyString
+  datetime: MyString

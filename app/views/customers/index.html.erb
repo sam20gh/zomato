@@ -1,0 +1,7 @@
+<h1>AMAZING CUSTOMERS </h1>
+
+<% @customers.each do |customer| %>
+<br>
+    <%= link_to customer.name, customer %>
+  <% end %>
+ 
