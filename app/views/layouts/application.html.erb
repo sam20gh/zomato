@@ -9,17 +9,23 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="https://blackrockdigital.github.io/startbootstrap-landing-page/vendor/jquery/jquery.min.js"></script>
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://blackrockdigital.github.io/startbootstrap-landing-page/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <style>
 @import url('https://fonts.googleapis.com/css?family=Poppins');
 </style>
     
   </head>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-light fixed-top" id="mainNav">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top" id="mainNav">
     <div class="container">
       <a class="navbar-brand js-scroll-trigger" href="/restaurants/" title="Restaurant App">
             <img style="max-width:250px; margin-top: -7px;"
              src="https://i.ibb.co/tYTPktz/weblogo.png"></a>
+             <a class="navbar-brand js-scroll-trigger" href="../customers/" title="Restaurant App">
+            <img style="max-width:250px; margin-top: -7px;"
+             src="https://i.ibb.co/84ZkdNq/team.png"></a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -34,22 +40,9 @@
                 <% end %>
               <% else %>
                 <a class="nav-link js-scroll-trigger" data-toggle="modal" >
+                <div class="btn btn-light">
                 <%= link_to "Signup/Login", "/customers/new"%>
-              <% end %>
-
-
-
-
-            <% if false %>
-            <a class="nav-link js-scroll-trigger" data-toggle="modal" >
-             <%= @current_customer.username if @current_customer %>
-              <% if @current_customer %>
-              </a>
-              <% else %>
-              <a class="nav-link js-scroll-trigger" data-toggle="modal" >
-                <%= link_to "Signup/Login", "/customers/new"%>
-              <% end %>
-              </a>
+                </div>
               <% end %>
           </li>
         </ul>

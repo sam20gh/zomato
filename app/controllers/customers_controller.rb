@@ -2,14 +2,11 @@ class CustomersController < ApplicationController
   def index
     @customers= Customer.all
   end
-  def create
-    # Customer.create(customer_params)
-    # @customer = Customer.new(customer_params[:id])
-    # redirect_to customer_path(@customer)
 
+  def create
       @customer = Customer.new(customer_params)
       if @customer.save
-      redirect_to customer_path(@customer)
+        redirect_to customer_path(@customer)
       else
           flash[:errors] = @customer.errors.full_messages
           flash[:data] = @customer

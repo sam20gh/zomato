@@ -16,8 +16,8 @@
       <p><strong>Address:</strong><br/> <%= @restaurant.address %></p>
       <p><strong>Cuisines: </strong><br/><%= @restaurant.cuisines %></p>
       <div class="review">
-      <a href="<%= @restaurant.menu_url%>" target="_blank"><img src="https://i.ibb.co/K08LRQ1/menu.png" alt="menu" border="0">Menu</a> 
-      <a href="<%= @restaurant.menu_url%>" target="_blank"><img src="https://i.ibb.co/RpSk4wF/calendar.png" alt="calendar" border="0"> Book A table</a> 
+      <a href="<%= @restaurant.menu_url %>" target="_blank"><img src="https://i.ibb.co/K08LRQ1/menu.png" alt="menu" border="0">Menu</a> 
+      <a href="<%= @restaurant.menu_url %>" target="_blank"><img src="https://i.ibb.co/RpSk4wF/calendar.png" alt="calendar" border="0"> Book A table</a> 
       <a href="#rating"><img src="https://i.ibb.co/TrT38r8/love.png" alt="love" border="0">Add a review</a>
       <a>Ratings: <%= @restaurant.ratings.count%> </a>
       
@@ -65,31 +65,43 @@
     
     <% end%>
     <% else %>
-    <%= "sign up or login to add your rating"%>
+    <a class="float-right btn btn-outline-primary ml-2" href="../customers/new"><%= "sign up or login to add your rating"%></a>
 <% end  %>
 </div>
-<div class="list-inline">
-<% @restaurant.ratings.each do |rating| %>
-<ol> 
-  
-   <li class="list-inline-item"><a class="social-icon text-xs-center">
-      <%= rating.comment %> - <%= rating.rating %> Stars- <%= rating.customer.username %>
-    </li>
-    <%= rating.updated_at.to_date%>
-    <% if @current_customer%>
-    <li class="list-inline-item"><a class="social-icon text-xs-center">
-       <%= button_to "Delete", {action: "delete", controller: "ratings", id: rating.id}, method: "delete" %>
-    </li>
-    <% end  %>
 
-</ol>
-  <% end %>
+<% @restaurant.ratings.each do |rating| %>
+<div class="card">
+	    <div class="card-body">
+	        <div class="row">
+        	    <div class="col-md-2">
+        	        <img src="https://image.ibb.co/jw55Ex/def_face.jpg" class="img img-rounded img-fluid"/>
+        	        <p class="text-secondary text-center"> <%= rating.updated_at.to_date%></p>
+        	    </div>
+        	    <div class="col-md-10">
+        	        <p>
+        	            <a class="float-left" href="#"><strong><%= rating.customer.username %></strong></a>
+        	            <span class="float-right"><i class="text-warning fa fa-star"><%= rating.rating %> /5 </i></span>
+
+
+        	       </p>
+        	       <div class="clearfix"></div>
+        	        <p><%= rating.comment %> <p>
+        	            <a class="float-right btn btn-outline-primary ml-2"> <i class="fa fa-reply"></i> Share</a>
+                       <% if @current_customer&.id == rating.customer.id%>
+        	            <a><%= button_to "Delete", {action: "delete", controller: "ratings", id: rating.id}, method: "delete", data: { confirm: "Are you sure?" }, :class => "btn-lg btn-danger delete-btn" %></a>
+                      <% end  %>
+        	       </p>
+        	    </div>
+	        </div>
+	    </div>
+	</div>
+    <% end %>
+
+                </div>
+             </div>
+          </div>
+      </div>
   </div>
-</div>
-</div>
-</div>
-</div>
-  </div>
-  <!-- /.row -->
+
 
 </div>

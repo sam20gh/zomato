@@ -1,0 +1,29 @@
+<br/><br/><br/><br/>
+<div class="row">
+  <h2 class="ui header">
+  <span class="segment_heading">Collections</span>
+  <span class="sub header">
+      <span class="segment_sub_heading"> We have found these places in London for you</span>
+  </span>
+  </h2>
+  </div>
+  </div>
+
+  <div class="row">
+     <% @restaurants.each do |restaurant| %>
+    <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+            <div class="card h-100">
+           
+            <a><img class="card-img-top" src="<%=restaurant.thumb%>" alt=""></a>
+            <div class="card-body">
+            <h4 class="card-title">
+            <a><%= link_to restaurant.name, restaurant %></a>
+            </h4>
+            <p><%= restaurant.cuisines %></p>
+           
+          </div>
+         </div>
+       
+    </div>
+      <% end %>
+    </div>

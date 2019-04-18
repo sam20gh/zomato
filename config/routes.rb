@@ -16,7 +16,7 @@ Rails.application.routes.draw do
   get "/profile", to: "customers#profile"
 
   delete "/ratings/:id", to: "ratings#delete"
-
+  post 'restaurants/search', to: 'restaurants#search'
 
 
 end
